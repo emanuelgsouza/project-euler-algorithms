@@ -1,0 +1,19 @@
+{
+  "name": "project-euler-algorithms",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/emanuelgsouza/project-euler-algorithms.git",
+  "author": "EmanuelGSouza <emanuelgdesouza@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "ramda": "^0.25.0"
+  },
+  "devDependencies": {
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1"
+  }
+}
