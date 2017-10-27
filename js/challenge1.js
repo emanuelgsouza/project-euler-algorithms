@@ -1,20 +1,24 @@
 /*
-
 Arquivo js para resolução do primeiro desafio do Project Euler
-Segue o desafio: "If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23. Find the sum of all the multiples of 3 or 5 below 1000."
-
+Segue o desafio:
+  "If we list all the natural numbers below 10 that are multiples of
+  3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
+  Find the sum of all the multiples of 3 or 5 below 1000."
 */
 
-var numbers = [];
+const { range, filter } = require('lodash')
+const { compose, sum, curry } = require ('ramda')
 
-for(var i = 0; i < 1000; i++) {
-  if((i % 3 == 0) || (i % 5 == 0) ) {
-    numbers.push(i);
-  }
-}
+const isDivisible = curry((divisor, number) => (number % divisor) === 0)
 
-var result = numbers.reduce(function(x, y) {
-  return x + y;
-});
+const isDivisibleToThree = isDivisible(3)
 
-console.log(result);
+const isDivisibleToFive = isDivisible(5)
+
+const numbersToHundred = range(1000)
+
+const getFiveThreeVisible = number => isDivisibleToFive(number) || isDivisibleToThree(number)
+
+const result = sum(filter(numbersToHundred, getFiveThreeVisible))
+
+console.log(result)
