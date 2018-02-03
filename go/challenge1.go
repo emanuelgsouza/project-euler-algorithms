@@ -2,13 +2,15 @@ package main
 
 import "fmt"
 
-func multipleByThree (number int) bool {
-	return number % 3 == 0
+func isDivisible (divisor int) func (number int) bool {
+	return func (number int) bool {
+		return number % divisor == 0
+	}
 }
 
-func multipleByFive (number int) bool {
-	return number % 5 == 0
-}
+var multipleByThree = isDivisible(3)
+
+var multipleByFive = isDivisible(5)
 
 // generate range https://stackoverflow.com/questions/39868029/how-to-generate-a-sequence-of-numbers-in-golang
 func makeRange(min, max int) []int {
