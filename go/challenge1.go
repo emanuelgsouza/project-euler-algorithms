@@ -2,6 +2,8 @@ package main
 
 import "fmt"
 
+// currying implementation
+// https://stackoverflow.com/questions/19394868/how-can-go-lang-curry
 func isDivisible (divisor int) func (number int) bool {
 	return func (number int) bool {
 		return number % divisor == 0
